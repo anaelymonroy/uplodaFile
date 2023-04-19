@@ -12,6 +12,8 @@ let cannotUploadMessage = document.querySelector(".cannot-upload-message");
 let cannotUploadMessageError = document.querySelector(".cannot-upload-message-error");
 
 let cancelAlertButton = document.querySelector(".cancel-alert-button");
+let cancelAlertButton2 = document.querySelector(".cancel-alert-button2");
+
 let uploadedFile = document.querySelector(".file-block");
 let fileName = document.querySelector(".file-name");
 let fileSize = document.querySelector(".file-size");
@@ -109,9 +111,14 @@ console.log("Subir archivo");
 
 cancelAlertButton.addEventListener("click", () => {
 	cannotUploadMessage.style.cssText = "display: none;";
-		cannotUploadMessageError.style.cssText = "display: none;";
 
 });
+cancelAlertButton2.addEventListener("click", () => {
+    cannotUploadMessageError.style.cssText = "display: none;";
+
+});
+
+
 /*
 if(isAdvancedUpload) {
 	["drag", "dragstart", "dragend", "dragover", "dragenter", "dragleave", "drop"].forEach( evt =>
