@@ -87,13 +87,33 @@ console.log("Subir archivo");
         			 var blob = fileInput.files[0];
                      var filename = fileInput.files[0].name;
                      var miniType = fileInput.files[0].type;
-                     var status =  uploadChunk(filename,blob, miniType);
-                     if (status == 201){
-					    uploadButton.innerHTML = `<span class="material-icons-outlined upload-button-icon"> check_circle </span> Uploaded`;
-					 }else {
-					 		cannotUploadMessageError.style.cssText = "display: flex; animation: fadeIn linear 1.5s;";
+                     //var status =  uploadChunk(filename,blob, miniType);
+                     var status = 0;
+                         var frmData = new FormData();
+                         frmData.append('file', blob);
+                         var xhr = new XMLHttpRequest();
+                         var urlParam = "?FILENAME="+filename+"&FILE_MIMETYPE="+miniType ;
+                         xhr.open('POST', URLPOST + urlParam, true);
+                         xhr.data
+                         xhr.send(frmData);
+                         xhr.onreadystatechange = function() {
+                             status = this.status;
+                             console.log(xhr.responseText);
+                             if (xhr.readyState == XMLHttpRequest.DONE) {
+                                 console.log(xhr.responseText);
+                             }
 
-					 }
+                              if (status == 201){
+                                console.log("bien");
+
+                             	  uploadButton.innerHTML = `<span class="material-icons-outlined upload-button-icon"> check_circle </span> Uploaded`;
+                              }else {
+                             	cannotUploadMessageError.style.cssText = "display: flex; animation: fadeIn linear 1.5s;";
+
+               				 }
+
+                         }
+
 
       			} else {
         			width += 5;
@@ -119,7 +139,7 @@ cancelAlertButton2.addEventListener("click", () => {
 });
 
 
-/*
+
 if(isAdvancedUpload) {
 	["drag", "dragstart", "dragend", "dragover", "dragenter", "dragleave", "drop"].forEach( evt =>
 		draggableFileArea.addEventListener(evt, e => {
@@ -142,7 +162,7 @@ if(isAdvancedUpload) {
 
 		uploadIcon.innerHTML = 'check_circle';
 		dragDropText.innerHTML = 'File Dropped Successfully!';
-		document.querySelector(".label").innerHTML = `drag & drop or <span class="browse-files"> <input type="file" class="default-file-input" style=""/> <span class="browse-files-text" style="top: -23px; left: -20px;"> browse file</span> </span>`;
+		//document.querySelector(".label").innerHTML = `drag & drop or <span class="browse-files"> <input type="file" class="default-file-input" style=""/> <span class="browse-files-text" style="top: -23px; left: -20px;"> browse file</span> </span>`;
 		uploadButton.innerHTML = `Upload`;
 
 		let files = e.dataTransfer.files;
@@ -151,12 +171,12 @@ if(isAdvancedUpload) {
 		console.log(document.querySelector(".default-file-input").value);
 		fileName.innerHTML = files[0].name;
 		fileSize.innerHTML = (files[0].size/1024).toFixed(1) + " KB";
-		//uploadedFile.style.cssText = "display: flex;";
+		uploadedFile.style.cssText = "display: flex;";
 		progressBar.style.width = 0;
 		fileFlag = 0;
 	});
 }
-*/
+
 
 removeFileButton.addEventListener("click", () => {
 console.log("entrorem");
