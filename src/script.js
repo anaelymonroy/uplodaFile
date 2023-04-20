@@ -20,6 +20,7 @@ let fileSize = document.querySelector(".file-size");
 let progressBar = document.querySelector(".progress-bar");
 let removeFileButton = document.querySelector(".remove-file-icon");
 let uploadButton = document.querySelector(".upload-button");
+let uploadReload = document.querySelector(".upload-button-reload");
 let fileFlag = 0;
 let URLPOST = "https://g2c0586b3c2559e-gtc.adb.us-ashburn-1.oraclecloudapps.com/ords/lecleire/utilidades//upload/";
 fileInput.addEventListener("click", () => {
@@ -30,9 +31,9 @@ fileInput.addEventListener("click", () => {
 fileInput.addEventListener("change", e => {
 	console.log(" > " + fileInput.value)
 	uploadIcon.innerHTML = 'check_circle';
-	dragDropText.innerHTML = 'File Dropped Successfully!';
+	dragDropText.innerHTML = '¡Archivo subido con éxito!';
 	//document.querySelector(".label").innerHTML = `drag & drop or <span class="browse-files"> <input type="file" class="default-file-input" style=""/> <span class="browse-files-text" style="top: 0;"> browse file</span></span>`;
-	///uploadButton.innerHTML = `Upload`;
+	///uploadButton.innerHTML = `Subir`;
 	fileName.innerHTML = fileInput.files[0].name;
 	fileSize.innerHTML = (fileInput.files[0].size/1024).toFixed(1) + " KB";
 	uploadedFile.style.cssText = "display: flex;";
@@ -105,8 +106,9 @@ console.log("Subir archivo");
 
                               if (status == 201){
                                 console.log("bien");
+                               	uploadReload.style.cssText = "display: block;";
 
-                             	  uploadButton.innerHTML = `<span class="material-icons-outlined upload-button-icon"> check_circle </span> Uploaded`;
+                             	  uploadButton.innerHTML = `<span class="material-icons-outlined upload-button-icon"> check_circle </span> Subido`;
                               }else {
                              	cannotUploadMessageError.style.cssText = "display: flex; animation: fadeIn linear 1.5s;";
 
@@ -127,6 +129,10 @@ console.log("Subir archivo");
 	} else {
 		cannotUploadMessage.style.cssText = "display: flex; animation: fadeIn linear 1.5s;";
 	}
+});
+
+uploadReload.addEventListener("click", () => {
+ location.reload();
 });
 
 cancelAlertButton.addEventListener("click", () => {
@@ -153,7 +159,7 @@ if(isAdvancedUpload) {
 			e.preventDefault();
 			e.stopPropagation();
 			uploadIcon.innerHTML = 'file_download';
-			dragDropText.innerHTML = 'Drop your file here!';
+			dragDropText.innerHTML = '¡Coloca tu archivo aquí!';
 		});
 	});
 
@@ -161,7 +167,7 @@ if(isAdvancedUpload) {
 	console.log("entro");
 
 		uploadIcon.innerHTML = 'check_circle';
-		dragDropText.innerHTML = 'File Dropped Successfully!';
+		dragDropText.innerHTML = '¡Archivo subido con éxito!';
 		//document.querySelector(".label").innerHTML = `drag & drop or <span class="browse-files"> <input type="file" class="default-file-input" style=""/> <span class="browse-files-text" style="top: -23px; left: -20px;"> browse file</span> </span>`;
 		uploadButton.innerHTML = `Upload`;
 
@@ -185,9 +191,9 @@ console.log("entrorem");
     fileSize.innerHTML = " KB";
 	fileInput.value = '';
 	uploadIcon.innerHTML = 'file_upload';
-	dragDropText.innerHTML = 'Drag & drop any file here';
+	dragDropText.innerHTML = 'Arrastra y suelta tu archivo aquí';
 	//document.querySelector(".label").innerHTML = `or <span class="browse-files"> <input type="file" class="default-file-input"/> <span class="browse-files-text">browse file</span> <span>from device</span> </span>`;
-	uploadButton.innerHTML = `Upload`;
+	uploadButton.innerHTML = `Subir`;
 });
 
 //SUBIR ARCHIVO

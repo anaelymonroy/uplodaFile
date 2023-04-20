@@ -115,7 +115,7 @@ body {
 	border-radius: 25px;
 	background-color: #4BB543;
 }
-.upload-button {
+.upload-button ,.upload-button-reload{
 	font-family: 'Montserrat';
 	background-color: #7b2cbf;
 	color: #f7fff7;
