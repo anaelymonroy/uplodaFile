@@ -167,8 +167,8 @@ if(isAdvancedUpload) {
 	draggableFileArea.addEventListener("drop", e => {
 	console.log("entro");
 
-		uploadIcon.innerHTML = 'check_circle';
-		dragDropText.innerHTML = '¡Archivo subido con éxito!';
+		//uploadIcon.innerHTML = 'check_circle';
+		//dragDropText.innerHTML = '¡Archivo subido con éxito!';
 		//document.querySelector(".label").innerHTML = `drag & drop or <span class="browse-files"> <input type="file" class="default-file-input" style=""/> <span class="browse-files-text" style="top: -23px; left: -20px;"> browse file</span> </span>`;
 		uploadButton.innerHTML = `Subir`;
 
