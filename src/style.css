@@ -3,12 +3,13 @@ body {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family: 'Montserrat', sans-serif;
+	font-family: var(--font-site), Open Sans;
+
 }
 .form-container {
 	width: 100vw;
 	height: 100vh;
-	background-color: #7b2cbf;
+	background-color: var(--color-site);
 	display: flex;
    	justify-content: center;
 	align-items: center;
@@ -25,7 +26,7 @@ body {
 	box-shadow: rgba(0, 0, 0, 0.24) 0px 10px 20px, rgba(0, 0, 0, 0.28) 0px 6px 6px;
 }
 .drag-file-area {
-	border: 2px dashed #7b2cbf;
+	border: 2px dashed var(--color-site);
 	border-radius: 40px;
 	margin: 10px 0 15px;
 	padding: 30px 50px;
@@ -33,17 +34,17 @@ body {
 	text-align: center;
 }
 .drag-file-area .upload-icon {
-	font-size: 50px;
+	font-size: 53px;
 }
 .drag-file-area h3 {
-	font-size: 26px;
+	font-size: 29px;
 	margin: 15px 0;
 }
 .drag-file-area label {
-	font-size: 19px;
+	font-size: 22px;
 }
 .drag-file-area label .browse-files-text {
-	color: #7b2cbf;
+	color: var(--color-site);
 	font-weight: bolder;
 	cursor: pointer;
 }
@@ -56,7 +57,7 @@ body {
 }
 .cannot-upload-message , .cannot-upload-message-error {
 	background-color: #ffc6c4;
-	font-size: 17px;
+	font-size: 21px;
 	display: flex;
 	align-items: center;
 	margin: 5px 0;
@@ -78,7 +79,7 @@ body {
 }
 .file-block {
 	color: #f7fff7;
-	background-color: #7b2cbf;
+	background-color: var(--color-site);
   	transition: all 1s;
 	width: 390px;
 	position: relative;
@@ -94,7 +95,7 @@ body {
 .file-info {
 	display: flex;
 	align-items: center;
-	font-size: 15px;
+	font-size: 18px;
 }
 .file-icon {
 	margin-right: 10px;
@@ -116,15 +117,20 @@ body {
 	background-color: #4BB543;
 }
 .upload-button ,.upload-button-reload{
-	font-family: 'Montserrat';
-	background-color: #7b2cbf;
+	font-family: var(--font-site);
+	background-color: var(--color-site);
 	color: #f7fff7;
 	display: flex;
 	align-items: center;
-	font-size: 18px;
+	font-size: 21px;
 	border: none;
 	border-radius: 20px;
 	margin: 10px;
 	padding: 7.5px 50px;
 	cursor: pointer;
+}
+
+:root {
+  --color-site: #0b1b4b   ;
+  --font-site : 'Playfair Display'
 }
