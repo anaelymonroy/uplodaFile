@@ -30,13 +30,11 @@ fileInput.addEventListener("click", () => {
 
 fileInput.addEventListener("change", e => {
 	console.log(" > " + fileInput.value)
-	uploadIcon.innerHTML = 'check_circle';
-	dragDropText.innerHTML = '¡Archivo subido con éxito!';
 	//document.querySelector(".label").innerHTML = `drag & drop or <span class="browse-files"> <input type="file" class="default-file-input" style=""/> <span class="browse-files-text" style="top: 0;"> browse file</span></span>`;
 	///uploadButton.innerHTML = `Subir`;
 	fileName.innerHTML = fileInput.files[0].name;
 	fileSize.innerHTML = (fileInput.files[0].size/1024).toFixed(1) + " KB";
-	uploadedFile.style.cssText = "display: flex;";
+	uploadedFile.style.cssText = "display: table-cell;";
 	progressBar.style.width = 0;
 	fileFlag = 0;
 
@@ -106,8 +104,11 @@ console.log("Subir archivo");
 
                               if (status == 201){
                                 console.log("bien");
-                               	uploadReload.style.cssText = "display: block;";
 
+                                uploadIcon.innerHTML = 'check_circle';
+                                dragDropText.innerHTML = '¡Archivo subido con éxito!';
+                               	uploadReload.style.cssText = "display: block;";
+                                uploadButton.style.cssText = "display: none;";
                              	  uploadButton.innerHTML = `<span class="material-icons-outlined upload-button-icon"> check_circle </span> Subido`;
                               }else {
                              	cannotUploadMessageError.style.cssText = "display: flex; animation: fadeIn linear 1.5s;";
@@ -169,7 +170,7 @@ if(isAdvancedUpload) {
 		uploadIcon.innerHTML = 'check_circle';
 		dragDropText.innerHTML = '¡Archivo subido con éxito!';
 		//document.querySelector(".label").innerHTML = `drag & drop or <span class="browse-files"> <input type="file" class="default-file-input" style=""/> <span class="browse-files-text" style="top: -23px; left: -20px;"> browse file</span> </span>`;
-		uploadButton.innerHTML = `Upload`;
+		uploadButton.innerHTML = `Subir`;
 
 		let files = e.dataTransfer.files;
 		fileInput.files = files;
